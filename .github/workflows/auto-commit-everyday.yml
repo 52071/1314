@@ -1,0 +1,43 @@
+# 工作流名称
+name: 每天自动提交
+
+# 触发工作流的方式
+on:
+  # 可手动触发
+  workflow_dispatch:
+  # 定时触发
+  schedule:
+    - cron: '0 0 * * *'
+
+# 作业清单
+jobs:
+  # 作业唯一标识
+  auto-commit-everyday:
+    # 运行作业的机器类型
+    runs-on: ubuntu-latest
+    # 权限设置
+    permissions:
+      contents: write
+    # 作业包含的一系列步骤（任务）
+    steps:
+      - name: 安装 Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: 检出代码
+        uses: actions/checkout@v3
+
+      - name: 设置Git
+        run: |
+          git config --local user.email "itabbot@qq.com"
+          git config --local user.name "itabbot"
+          git remote set-url origin https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
+      - name: 安装依赖
+        run: |
+          npm ci
+
+      - name: 执行脚本
+        run: |
+          npm run evd

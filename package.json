@@ -1,0 +1,29 @@
+{
+  "name": "1314",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/everyday.js",
+  "scripts": {
+    "cpl": "node ./src/complete.js",
+    "evd": "node ./src/everyday.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/52071/1314.git"
+  },
+  "keywords": [],
+  "author": "itabbot@qq.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/52071/1314/issues"
+  },
+  "homepage": "https://github.com/52071/1314#readme",
+  "dependencies": {
+    "config": "^3.3.9",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "jest": "^29.2.2"
+  }
+}
