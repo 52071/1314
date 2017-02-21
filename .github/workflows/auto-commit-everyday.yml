@@ -4,7 +4,7 @@ name: 每天自动提交
 # 触发工作流的方式
 on:
   # 可手动触发
-  workflow_dispatch:
+  # workflow_dispatch:
   # 定时触发
   schedule:
     - cron: '0 0 * * *'
